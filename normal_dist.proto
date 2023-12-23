@@ -1,0 +1,27 @@
+// normal_dist.proto
+// protoc --go_out=. normal_dist.proto
+// protoc --go-grpc_out=. normal_dist.proto
+
+syntax = "proto3";
+package main;
+
+option go_package = "/go-gen";
+
+service NormalDistribution {
+  rpc CalculatePi (PiRequest) returns (PiResponse);
+  rpc CalculateExp (ExpRequest) returns (ExpResponse);
+}
+
+message PiRequest {}
+
+message PiResponse {
+  double value = 1;
+}
+
+message ExpRequest {
+  double x = 1;
+}
+
+message ExpResponse {
+  double value = 1;
+}
